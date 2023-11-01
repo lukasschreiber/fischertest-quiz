@@ -14,7 +14,7 @@ db.run("CREATE TABLE IF NOT EXISTS questions (quiz INTEGER, question INTEGER, hi
 db.run("CREATE TABLE IF NOT EXISTS answeredQuestions (quiz INTEGER, question INTEGER, user INTEGER, correct BOOLEAN, FOREIGN KEY(quiz) REFERENCES quizzes(id), FOREIGN KEY(question) REFERENCES questions(id), FOREIGN KEY(user) REFERENCES users(id), PRIMARY KEY (quiz, question, user))");
 
 const app = express();
-const port = 3000;
+const port = 3002;
 
 app.use(bodyParser.json());
 app.use(cors());
