@@ -41,10 +41,10 @@ export default function Home() {
             }
         };
         if (body.title) {
-            fetch("https://backend.fishingqueenlukasschreiber.com/user/" + authed + "/quiz", { method: "POST", headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
+            fetch("https://backend.fishingqueen.lukasschreiber.com/user/" + authed + "/quiz", { method: "POST", headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) })
                 .then(body => body.json())
                 .then(json => {
-                    fetch("https://backend.fishingqueenlukasschreiber.com/user/" + authed + "/quiz").then(body => body.json()).then(json => {
+                    fetch("https://backend.fishingqueen.lukasschreiber.com/user/" + authed + "/quiz").then(body => body.json()).then(json => {
                         setQuizzes(json.quizzes);
                     });
                 });
@@ -54,7 +54,7 @@ export default function Home() {
 
     useEffect(() => {
         console.log("test" + authed);
-        fetch("https://backend.fishingqueenlukasschreiber.com/user/" + authed + "/quiz").then(body => body.json()).then(json => {
+        fetch("https://backend.fishingqueen.lukasschreiber.com/user/" + authed + "/quiz").then(body => body.json()).then(json => {
             setQuizzes(json.quizzes);
         });
     }, [authed]);

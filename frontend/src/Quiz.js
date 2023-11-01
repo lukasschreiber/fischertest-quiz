@@ -10,7 +10,7 @@ export default function Quiz(props) {
 
     const handleDelete = () => {
         if (window.confirm('Möchtest du das Quiz wirklich löschen?')) {
-            fetch("https://backend.fishingqueenlukasschreiber.com/user/" + authed + "/quiz/" + props.id, { method: "DELETE", headers: { 'Content-Type': 'application/json' } })
+            fetch("https://backend.fishingqueen.lukasschreiber.com/user/" + authed + "/quiz/" + props.id, { method: "DELETE", headers: { 'Content-Type': 'application/json' } })
                 .then(body => body.json())
                 .then(json => props.onDelete(props.id));
         }
