@@ -29,7 +29,7 @@ export default function Questions() {
             if (!quiz.questions[questionIndex].answered.correct) setCorrectCount(correctCount + 1);
             cc = true;
         }
-        fetch("https://fqb.lukasschreiber.com/user/" + authed + "/quiz/" + params.id + "/answer", {
+        fetch("https://backend.fishingqueenlukasschreiber.com/user/" + authed + "/quiz/" + params.id + "/answer", {
             method: "POST", headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({
                 "target": quiz.questions[questionIndex].id,
                 "correct": cc
@@ -44,7 +44,7 @@ export default function Questions() {
     };
 
     const handleHighlight = () => {
-        fetch("https://fqb.lukasschreiber.com/user/" + authed + "/quiz/" + params.id + "/highlight", {
+        fetch("https://backend.fishingqueenlukasschreiber.com/user/" + authed + "/quiz/" + params.id + "/highlight", {
             method: "POST", headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({
                 "target": quiz.questions[questionIndex].id,
                 "highlight": !quiz.questions[questionIndex].highlighted
@@ -74,7 +74,7 @@ export default function Questions() {
             setCorrectCount(json.questions.filter(question => question.answered.correct).length);
             setHighlighted(json.questions[Number.parseInt(params.question)].highlighted);
         }else{
-            fetch("https://fqb.lukasschreiber.com/user/" + authed + "/quiz/" + params.id).then(body => body.json()).then(json => {
+            fetch("https://backend.fishingqueenlukasschreiber.com/user/" + authed + "/quiz/" + params.id).then(body => body.json()).then(json => {
                 if (!keepOrder) json.questions.forEach(q => q.answers = q.answers.sort((a, b) => 0.5 - Math.random()).sort((a, b) => 0.5 - Math.random()).sort((a, b) => 0.5 - Math.random()));
                 else json.questions.forEach((q, i) => q.answers = quiz.questions[i].answers);
                 setQuiz(json);

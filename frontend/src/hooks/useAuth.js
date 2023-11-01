@@ -12,7 +12,7 @@ export function useAuth() {
 
     useEffect(() => {
         if (authed !== "") {
-            fetch("https://fqb.lukasschreiber.com/login", { method: "POST", headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ username: authed }) })
+            fetch("https://backend.fishingqueenlukasschreiber.com/login", { method: "POST", headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ username: authed }) })
                 .then(body => body.json())
                 .then(json => {
                     if (json.error === false) {
